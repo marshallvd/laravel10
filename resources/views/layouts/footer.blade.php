@@ -2,7 +2,7 @@
     <div class="row align-items-center">
         
         <div class="col-md-4 text-md-start">
-            <p class="mb-0"><a class="text-primary fw-normal">2105551093</a></p>
+            <p class="mb-0"><a class="text-primary fw-normal"><b>2105551093</b></a></p>
         </div>
         
 
@@ -68,7 +68,16 @@
 <!-- Github buttons -->
 <script async defer src="https://buttons.github.io/buttons.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
 @stack('javascript')
 <!-- Volt JS -->
 {{-- <script src="{{ asset('volt/hmtl&css/assets/js/volt.js') }}"></script> --}}
+<script>
+    window.setTimeout(function()=>{
+        $("alert").fadeTo(500,0).slideUp(500,function(){
+            $(this).remove()
+        })
+    },3000);
+</script>
 

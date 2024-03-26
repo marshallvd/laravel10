@@ -63,7 +63,7 @@
             <!--SIDEBAR NAV-->
             <ul class="nav flex-column pt-3 pt-md-0">
                 <li class="nav-item">
-                    <a href="" class="nav-link d-flex align-items-center">
+                    <a href="{{ route('spots') }}" class="nav-link" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
                             <img src="{{ asset('storage/volt/html&css/assets/img/brand/hmti.png') }}" height="20"
                                 width="20" alt="Volt Logo">
@@ -106,38 +106,90 @@
                         <ul class="flex-column nav">
                         <li class="nav-item {{ Request::is('map-tugas1') }}">
                             <a class="nav-link" href="{{ route('map-tugas1') }}">
-                            <span class="sidebar-text">Tugas 1</span>
+                            <span class="sidebar-text">Map and Marker</span>
                             </a>
                         </li>
-                        <li class="nav-item {{ Request::is('belum-buat') }}">
-                            <a class="nav-link" href="{{ route('belum-buat') }}">
-                            <span class="sidebar-text">Tugas 2</span>
+                        <li class="nav-item {{ Request::is('map-tugas2') }}">
+                            <a class="nav-link" href="{{ route('map-tugas2') }}">
+                            <span class="sidebar-text">Circle</span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('belum-buat') }}">
-                            <span class="sidebar-text">Tugas 3</span>
+                        <li class="nav-item {{ Request::is('map-tugas3') }} ">
+                            <a class="nav-link" href="{{ route('map-tugas3') }}">
+                            <span class="sidebar-text">Polygon</span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('belum-buat') }}">
-                            <span class="sidebar-text">Tugas 4</span>
+                        <li class="nav-item {{ Request::is('map-tugas4') }} ">
+                            <a class="nav-link" href="{{ route('map-tugas4') }}">
+                            <span class="sidebar-text">Polyline</span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('belum-buat') }}">
-                            <span class="sidebar-text">Tugas 5</span>
+                        <li class="nav-item {{ Request::is('map-tugas5') }}">
+                            <a class="nav-link" href="{{ route('map-tugas5') }}">
+                            <span class="sidebar-text">Rectangle</span>
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link" href="{{ route('belum-buat') }}">
-                            <span class="sidebar-text">Tugas 6</span>
+                        <li class="nav-item {{ Request::is('map-tugas6') }}">
+                            <a class="nav-link" href="{{ route('map-tugas6') }}">
+                            <span class="sidebar-text">Leaflet Control</span>
+                            </a>
+                        </li>
+                        <li class="nav-item {{ Request::is('map-tugas7') }}">
+                            <a class="nav-link" href="{{ route('map-tugas7') }}">
+                            <span class="sidebar-text">Layer Group</span>
+                            </a>
+                        </li>
+                        <li class="nav-item {{ Request::is('map-tugas8') }}">
+                            <a class="nav-link" href="{{ route('map-tugas8') }}">
+                            <span class="sidebar-text">GeoJSON</span>
+                            </a>
+                        </li>
+                        <li class="nav-item {{ Request::is('map-tugas9') }}">
+                            <a class="nav-link" href="{{ route('map-tugas9') }}">
+                            <span class="sidebar-text">Get Koordinat</span>
                             </a>
                         </li>
                         </ul>
                     </div>
                     </li>
 
+                    <li class="nav-item">
+                        <span
+                            class="nav-link  collapsed  d-flex justify-content-between align-items-center"
+                            data-bs-toggle="collapse" data-bs-target="#submenu-data">
+                            <span>
+                            <span class="sidebar-icon">
+                                <svg class="icon icon-xs me-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z"></path><path fill-rule="evenodd" d="M3 8h14v7a2 2 0 01-2 2H5a2 2 0 01-2-2V8zm5 3a1 1 0 011-1h2a1 1 0 110 2H9a1 1 0 01-1-1z" clip-rule="evenodd"></path></svg>
+                            </span> 
+                                <span class="sidebar-text">Master Data</span>
+                            </span>
+                            <span class="link-arrow">
+                            <svg class="icon icon-sm" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd"></path></svg>
+                            </span>
+                        </span>
+                        <div class="multi-level collapse " role="list"
+                            id="submenu-data" aria-expanded="false">
+                            <ul class="flex-column nav">
+                            <li class="nav-item {{ Request::is('centre-point.index') }}">
+                                <a class="nav-link" href="{{ route('centre-point.index') }}">
+                                <span class="sidebar-text">Center Point</span>
+                                </a>
+                            </li>
+
+                            <li class="nav-item ">
+                            <a class="nav-link" href="{{route('spot.index')}}">
+                                <span class="sidebar-text">Spot</span>
+                            </a>
+                            </li>
+                            
+                            </ul>
+                        </div>
+                        </li>
+
+                <!--SIDEBAR MENU-->
+
+                <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
+                
                 <li class="nav-item ">
                     <a href="{{ route('belum-buat') }}" class="nav-link">
                         <span class="sidebar-icon">
@@ -151,10 +203,6 @@
                         <span class="sidebar-text">Settings</span>
                     </a>
                 </li>
-
-                <!--SIDEBAR MENU-->
-
-                <li role="separator" class="dropdown-divider mt-4 mb-3 border-gray-700"></li>
             </ul>
             <!--HEADER NAV-->
             
