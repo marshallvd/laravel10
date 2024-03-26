@@ -79,7 +79,8 @@ class HomeController extends Controller
     }
 
     public function detailSpot($id){
-        $spot =Spot::findOrFail('id',$id)->first();
-        return view('frontend.detail',['spot'=>$spot]);
+        $spot =Spot::findOrFail($id);
+        // return view('frontend.detail',['spot'=>$spot]);
+        return dd($spot);
     }
 }
