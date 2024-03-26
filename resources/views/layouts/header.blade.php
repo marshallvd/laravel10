@@ -53,6 +53,7 @@
     <link type="text/css" href="{{ asset('storage/volt/html&css/css/volt.css') }}" rel="stylesheet">
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 @yield('css')
 
 </head>
