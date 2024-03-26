@@ -57,6 +57,8 @@
                 pseudoFullscreen: false
             }
         })
+
+        
         // Membuat ikon marker kustom
         var iconMarker = L.icon({
             iconUrl :"{{ asset('storage/marker/marker.png') }}",
@@ -111,5 +113,7 @@
         }
 
         const layerControl = L.control.layers(baseLayers).addTo(map)
+        
+
     </script>
 @endpush

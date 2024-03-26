@@ -74,7 +74,7 @@
 <!-- Volt JS -->
 {{-- <script src="{{ asset('volt/hmtl&css/assets/js/volt.js') }}"></script> --}}
 <script>
-    window.setTimeout(function()=>{
+    window.setTimeout(function(){
         $("alert").fadeTo(500,0).slideUp(500,function(){
             $(this).remove()
         })

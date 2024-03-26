@@ -131,7 +131,7 @@
 
 
         var map = L.map('map',{
-            center:[{{ $centerPoint->koordinat?? [-8.486668932611492, 115.3173047121189]}}],
+            center:[{{ $centerPoint->koordinat?? -8.486668932611492, 115.3173047121189}}],
             minZoom:8,
             zoom:17,
             layers:[osm]
@@ -145,7 +145,7 @@
         })
 
         // Membuat marker dengan ikon kustom
-        var marker = L.marker([{{ $centerPoint->koordinat }}],{
+        var marker = L.marker([{{ $centerPoint->koordinat?? -8.486668932611492, 115.3173047121189 }}],{
             icon:iconMarker,
             draggable : true // Mengaktifkan fitur drag untuk marker
         })
