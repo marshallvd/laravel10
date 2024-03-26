@@ -80,7 +80,7 @@ class HomeController extends Controller
 
     public function detailSpot($id){
         $spot =Spot::findOrFail($id);
-        // return view('frontend.detail',['spot'=>$spot]);
-        return dd($spot);
+        return view('frontend.detail',['spot'=>$spot]);
+        // return dd($spot);
     }
 }
