@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@extends('layouts.sidebar')
 
 @section('css')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -13,11 +14,8 @@
             margin: 0;
         }
 
-        .leaflet-container {
-            height: 400px;
-            width: 600px;
-            max-width: 100%;
-            max-height: 100%;
+        #map { 
+            height: 600px; 
         }
     </style>
 @endsection
@@ -35,15 +33,15 @@
             </div>
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Detail Tempat : {{ $spot->nama_rs }}</div>
+                    <div class="card-header">Detail Tempat : </div>
                     <div class="card-body">
                         <p>
                         <h4><strong>Nama Tempat :</strong></h4>
-                        <h5>Nama Tempat</h5>
+                        <h5>{{ $spot->nama_rs }}</h5>
                         </p>
 
                         <p>
-                        <h4><strong>Detail :</strong></h4>
+                        <h4><strong>Deskripsi :</strong></h4>
                         <p> {{ $spot->deskripsi }} </p>
                         </p>
 
@@ -67,43 +65,52 @@
 
     <script>
         var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            maxZoom: 19,
-            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        maxZoom: 19,
+        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    });
+
+    var Stadia_Dark = L.tileLayer(
+        'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
+            maxZoom: 20,
+            attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
         });
 
-        var Stadia_Dark = L.tileLayer(
-            'https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
-                maxZoom: 20,
-                attribution: '&copy; <a href="https://stadiamaps.com/">Stadia Maps</a>, &copy; <a href="https://openmaptiles.org/">OpenMapTiles</a> &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors'
-            });
+    var Esri_WorldStreetMap = L.tileLayer(
+        'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
+            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
+        });
 
-        var Esri_WorldStreetMap = L.tileLayer(
-            'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}', {
-                attribution: 'Tiles &copy; Esri &mdash; Source: Esri, DeLorme, NAVTEQ, USGS, Intermap, iPC, NRCAN, Esri Japan, METI, Esri China (Hong Kong), Esri (Thailand), TomTom, 2012'
-            });
+    // Membuat ikon marker kustom
+    var iconMarker = L.icon({
+        iconUrl :"{{ asset('storage/marker/marker.png') }}",
+        iconSize:     [50, 50], // ukuran ikon
+    })
 
-        var map = L.map('map', {
-            center: [{{ $spot->koordinat }}],
-            zoom: 10,
-            layers: [osm],
-            fullscreenControl: {
-                pseudoFullscreen: false
-            }
-        })
+    
 
-        const baseLayers = {
-            'Openstreetmap': osm,
-            'StadiaDark': Stadia_Dark,
-            'Esri': Esri_WorldStreetMap
+    var map = L.map('map', {
+        center: [{{ $spot->koordinat }}],
+        zoom: 15,
+        layers: [osm],
+        fullscreenControl: {
+            pseudoFullscreen: false
         }
+    })
 
-        const layerControl = L.control.layers(baseLayers).addTo(map)
+    var baseMaps = {
+        'Openstreetmap': osm,
+        'StadiaDark': Stadia_Dark,
+        'Esri': Esri_WorldStreetMap
+    }
+
+    const layerControl = L.control.layers(baseMaps).addTo(map)
         var curLocation = [{{ $spot->koordinat }}] 
-
         var marker = new L.marker(curLocation,{
-            draggable:false
-        })
-        map.addLayer(marker)
+            draggable:false,
+            icon:iconMarker
+    })
+    map.addLayer(marker)
+
         
     </script>
 @endpush

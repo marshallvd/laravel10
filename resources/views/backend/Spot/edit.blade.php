@@ -51,7 +51,7 @@
                     <div class="form-group my-3">
                         <label for="">Nama Rumah Sakit</label>
                         <input type="text" class="form-control @error('nama_rs')
-                        @enderror" name="nama_rs" id="namna_rs" value="{{ $spot->nama_rs }}">
+                        @enderror" name="nama_rs" id="nama_rs" value="{{ $spot->nama_rs }}">
                         @error('nama_rs')
                             <div class="invalid-feedback">{{ $message }}</div>                        
                         @enderror

@@ -1,7 +1,7 @@
 @extends('layouts.sidebar')
 
 @section('css')
-{{-- <link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css"> --}}
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.5/css/dataTables.bootstrap5.min.css">
 @endsection
 
 @section('content')
@@ -63,6 +63,7 @@
                 responsive:true,
                 lengthChange:true,
                 autoWidth:false,
+                
                 ajax:'{{ route('spot.data') }}',
                 columns:[
                     {
@@ -78,8 +79,6 @@
                     },{
                         data:'tipe'
                     },
-                    
-                
                     {
                         data:'action'
                     }

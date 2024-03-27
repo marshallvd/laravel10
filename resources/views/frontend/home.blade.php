@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Card title</div>
+                    <div class="card-header">Maps</div>
                     <div class="card-body">
                         <div id="map" style="height: 500px"></div>
                     </div>
@@ -60,7 +60,7 @@
             zoom: 10,
             layers: [osm],
             fullscreenControl: {
-                pseudoFullscreen: false
+            pseudoFullscreen: false
             }
         })
 
@@ -113,7 +113,7 @@
                     .bindPopup(
                         "<div class='my-2'><img src='{{ $item->getImageAsset() }}' class='img-fluid' width='700px'></div>" +
                         "<div class='my-2'><b>{{ $item->nama_rs }}</b></div>" +
-                        "<div><a href='{{ route('detail-spot',$item->id) }}' class='btn btn-outline-info'>Detail Spot</a></div>"
+                        "<div><a href='{{ route('detail-spot',$item->id) }}' class='btn btn-outline-info'>Detail Lokasi</a></div>"
                     )
                     .addTo(map)
             @endforeach
