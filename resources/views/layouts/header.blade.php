@@ -54,6 +54,8 @@
 
     <!-- NOTICE: You can use the _analytics.html partial to include production code specific code & trackers -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 @yield('css')
 
 </head>

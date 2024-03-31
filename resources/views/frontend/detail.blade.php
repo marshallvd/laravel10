@@ -1,5 +1,6 @@
 @extends('layouts.frontend')
 @extends('layouts.sidebar')
+@extends('layouts.header')
 
 @section('css')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -15,7 +16,7 @@
         }
 
         #map { 
-            height: 600px; 
+            height: 700px; 
         }
     </style>
 @endsection
@@ -25,7 +26,7 @@
         <div class="row justify-content-center">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Maps</div>
+                    <div class="card-header"><h2>Maps</h2></div>
                     <div class="card-body">
                         <div id="map"></div>
                     </div>
@@ -33,26 +34,35 @@
             </div>
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header">Detail Tempat : </div>
+                    <div class="card-header"><h2>Detail Tempat</h2></div>
                     <div class="card-body">
-                        <p>
-                        <h4><strong>Nama Tempat :</strong></h4>
-                        <h5>{{ $spot->nama_rs }}</h5>
-                        </p>
-
-                        <p>
-                        <h4><strong>Deskripsi :</strong></h4>
-                        <p> {{ $spot->deskripsi }} </p>
-                        </p>
-
-                        <p>
-                        <h4>
-                            <strong>Gambar</strong>
-                        </h4>
-                        <img class="img-fluid" width="200" src="{{ $spot->getImageAsset() }}" alt="">
-                        </p>
+                        <div class="text-center mb-3">
+                            <img class="img-fluid rounded " style="max-width: 100%;" src="{{ $spot->getImageAsset() }}" alt="">
+                        </div>
+                        <h3 class="text-center"><b>{{ $spot->nama_rs }}</b></h3>
+                        <p class="text-center">{{ $spot->koordinat }}</p>
+                        <div style="display: flex; align-items: center margin-bottom: 2rem;">
+                            <i class="fas fa-map-marker-alt me-2" style="font-size: 1.25rem;"></i>
+                            <h5 style="margin-bottom: 1; font-size: 1rem;">{{ $spot->alamat }}</h5>
+                        </div>
+                        <div style="display: flex; align-items: flex-start;">
+                            <i class="fas fa-info-circle me-2" style="font-size: 1.25rem;"></i>
+                            <h5 style="margin-bottom: 0; font-size: 1rem;">Deskripsi</h5>
+                        </div>
+                        <div style="margin-left: 2rem;">
+                            <p style="margin-bottom: 0; font-size: 1rem;">{{ $spot->deskripsi }}</p>
+                        </div>
+                        
                     </div>
+                    
                 </div>
+                
+            </div>
+        </div>
+        <br>
+        <div class="card">
+            <div class="card-body d-flex justify-content-center">
+                <a href="{{ route('spots') }}" class=" btn btn-warning btn-sm ">Kembali</a>
             </div>
         </div>
     </div>

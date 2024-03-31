@@ -17,9 +17,11 @@ use Illuminate\Support\Facades\Auth;
 
 
 
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('spots');
+// });
+
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'spots']);
 
 
 Auth::routes();

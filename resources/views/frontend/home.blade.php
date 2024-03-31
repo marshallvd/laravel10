@@ -1,4 +1,5 @@
 @extends('layouts.frontend')
+@extends('layouts.header')
 
 @section('css')
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -20,6 +21,13 @@
                         <div id="map" style="height: 500px"></div>
                     </div>
                 </div>
+                <br>
+                <div class="card">
+                    <div class="card-body d-flex justify-content-center">
+                        <a href="{{ route('spot.index') }}" class=" btn btn-info btn-sm ">Data Lokasi</a>
+                    </div>
+                </div>
+                <br>
             </div>
         </div>
     </div>
@@ -60,7 +68,7 @@
             zoom: 10,
             layers: [osm],
             fullscreenControl: {
-            pseudoFullscreen: false
+                pseudoFullscreen: false
             }
         })
 

@@ -133,7 +133,7 @@
         var map = L.map('map',{
             center:[{{ $centerPoint->koordinat?? -8.486668932611492, 115.3173047121189}}],
             minZoom:8,
-            zoom:17,
+            zoom:13,
             layers:[osm]
         })
 

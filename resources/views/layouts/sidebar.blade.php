@@ -7,9 +7,8 @@
 
     <nav class="navbar navbar-dark bg-oldmoney-darkest-charcoal px-4 col-12 d-lg-none">
         <a class="navbar-brand me-lg-5" href="../../index.html">
-            <img class="navbar-brand-dark" src="{{ asset('storage/volt/html&css/assets/img/brand/hmti.png') }}"
-                alt="Volt logo" /> <img class="navbar-brand-light"
-                src="{{ asset('volt/html&css/assets/img/brand/dark.svg') }}" alt="Volt logo" />
+            <img src="{{ asset('storage/volt/html&css/assets/img/brand/hmti.png') }}"
+                    class="card-img-top rounded-circle border-white" alt="Bonnie Green">
         </a>
         <div class="d-flex align-items-center">
             <button class="navbar-toggler d-lg-none collapsed" type="button" data-bs-toggle="collapse"
@@ -66,7 +65,7 @@
                     <a href="{{ route('spots') }}" class="nav-link" class="nav-link d-flex align-items-center">
                         <span class="sidebar-icon">
                             <img src="{{ asset('storage/volt/html&css/assets/img/brand/hmti.png') }}" height="20"
-                                width="20" alt="Volt Logo">
+                                width="20" >
                         </span>
                         <span class="mt-1 ms-1 sidebar-text">SI - GIS</span>
                     </a>
