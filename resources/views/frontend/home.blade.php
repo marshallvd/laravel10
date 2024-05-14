@@ -16,7 +16,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card">
-                    <div class="card-header">Maps</div>
+                    <div class="card-header">Maps - Rumah Sakit</div>
                     <div class="card-body">
                         <div id="map" style="height: 500px"></div>
                     </div>

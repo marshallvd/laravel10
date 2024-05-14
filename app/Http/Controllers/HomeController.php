@@ -13,10 +13,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    public function __construct()
-    {
-        // $this->middleware('auth');
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
 
     /**
      * Show the application dashboard.
@@ -28,6 +28,14 @@ class HomeController extends Controller
         return view('home');
     }
 
+    public function login(){
+        return view('auth.login');
+    }
+
+    public function register(){
+        return view('auth.register');
+    }
+    
     public function belum_buat(){
         return view('layouts.404');
     }

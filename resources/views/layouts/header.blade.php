@@ -56,6 +56,8 @@
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
 
+    @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
 @yield('css')
 
 </head>

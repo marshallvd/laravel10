@@ -202,6 +202,16 @@
                         <span class="sidebar-text">Settings</span>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="#" onclick="event.preventDefault(); console.log('Logout link clicked'); document.getElementById('logout-form').submit();">
+                        {{ __('Logout') }}
+                    </a>
+                </li>
+            
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
             </ul>
             <!--HEADER NAV-->
             
@@ -332,7 +342,17 @@
         <!--DISPLAY CONTENT-->
 
         
-
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const sidebarToggle = document.querySelector('.navbar-toggler');
+                sidebarToggle.addEventListener('click', function () {
+                    document.getElementById('sidebar').classList.toggle('collapse');
+                });
+                @if(session('status'))
+                    toastr.success('{{ session('status') }}');
+                @endif
+            });
+        </script>
 </body>
 
 </html>

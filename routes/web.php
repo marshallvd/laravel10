@@ -21,14 +21,17 @@ use Illuminate\Support\Facades\Auth;
 //     return view('spots');
 // });
 
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'spots']);
-
-
-Auth::routes();
-
-
+Route::get('/', [\App\Http\Controllers\HomeController::class, 'login']);
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Auth::routes();
+
+Route::get('/login', [App\Http\Controllers\HomeController::class, 'login'])->name('login');
+
+Route::get('/register', [App\Http\Controllers\HomeController::class, 'register'])->name('register');
+
+Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+
 
 Route::get('/belum-buat', [App\Http\Controllers\HomeController::class, 'belum_buat'])->name('belum-buat');
 

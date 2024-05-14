@@ -40,7 +40,16 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+
+        'api' => [
+            'driver' => 'jwt', // Ensure this is set to 'jwt' if using JWT for authentication
+            'provider' => 'users',
+            'hash' => false,
+        ],
     ],
+
+    
+
 
     /*
     |--------------------------------------------------------------------------
