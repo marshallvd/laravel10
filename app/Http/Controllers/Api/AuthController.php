@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 
     
@@ -35,39 +36,37 @@ class AuthController extends Controller
     }
 
     public function login(Request $request){
-        $validator =Validator::make($request->all(),[
+        $validator = Validator::make($request->all(),[
             'email'=>'required|string|email',
             'password'=>'required|string|min:6'
         ]);
+    
         if ($validator->fails()){
             return response()->json($validator->errors(),422);
         }
-        if(!$token=auth()->attempt($validator->validated())){
+    
+        if(!$token = auth()->attempt($validator->validated())){
             return response()->json(['error'=>'Unauthorized'],401);
         }
+        dd('test');
         return $this->createNewToken($token);
     }
-
+    
     public function createNewToken($token){
         return response()->json([
             'access_token'=>$token,
             'token_type'=>'bearer',
-            'expires_in' => auth()->factory()->getTTL() * 60,
+            'expires_in' => auth()->factory()->getTTL() * 3600,
             'user'=>auth()->user()
         ]);
     }
     
-    public function profile (){
-        return response()->json(auth()->user());
-    }
-
     public function logout()
     {
-        auth()->logout(); // Pass true to invalidate the token on the blacklist
-        return response()->json([
-            'message' => 'User successfully logged out',
-        ]);
+        auth()->logout(); // Logout pengguna
+        return response()->json(['message' => 'Successfully logged out']);
     }
+    
     // public function logout(Request $request)
     // {
     //     // Hapus token pengguna yang sedang aktif

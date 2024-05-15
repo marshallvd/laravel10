@@ -1,4 +1,5 @@
 @extends('layouts.sidebar')
+@extends('layouts.header')
 
 @section('css')
     <!-- Menambahkan stylesheet Leaflet -->
