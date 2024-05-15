@@ -121,7 +121,7 @@
         .then(data => {
             if (data.access_token) {
                 localStorage.setItem('access_token', data.access_token);
-                window.location.href = '/home';
+                window.location.href = '/spots';
             } else {
                 alert('Registration failed');
             }
